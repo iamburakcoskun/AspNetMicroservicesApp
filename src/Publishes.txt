@@ -1,0 +1,2 @@
+Catalog service: 5001
+Basket service: 5002
