@@ -1,3 +1,4 @@
 Catalog service: 5001
 Basket service: 5002
 Discount service: 5003
+Order service: 5004
