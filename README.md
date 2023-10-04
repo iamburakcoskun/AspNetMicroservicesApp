@@ -2,7 +2,7 @@
 
 docker-compose -f docker-compose.yml -f docker-compose.override.yml up
 
-#H1 header
+# A first-level heading
 Run The Project
 You will need the following tools:
 
