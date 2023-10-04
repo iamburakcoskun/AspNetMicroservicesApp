@@ -60,9 +60,18 @@ namespace Ordering.Infrastructure.Repositories
 
         public async Task<T> AddAsync(T entity)
         {
-            _dbContext.Set<T>().Add(entity);
-            await _dbContext.SaveChangesAsync();
-            return entity;
+            try
+            {
+                _dbContext.Set<T>().Add(entity);
+                await _dbContext.SaveChangesAsync();
+                return entity;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            
         }
 
         public async Task UpdateAsync(T entity)

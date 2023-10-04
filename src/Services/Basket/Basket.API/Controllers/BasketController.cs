@@ -16,15 +16,11 @@ namespace Basket.API.Controllers
         private readonly IPublishEndpoint _publishEndpoint;
         private readonly IMapper _mapper;
 
-        public BasketController(IMapper mapper, IPublishEndpoint publishEndpoint)
+        public BasketController(IMapper mapper, IPublishEndpoint publishEndpoint, IBasketRepository repository)
         {
             _mapper = mapper;
             _publishEndpoint = publishEndpoint;
-        }
-
-        public BasketController(IBasketRepository repository)
-        {
-            _repository = repository ?? throw new ArgumentNullException(nameof(repository));
+            _repository = repository;
         }
 
         [HttpGet("{userName}", Name = "GetBasket")]

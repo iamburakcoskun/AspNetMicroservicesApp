@@ -25,12 +25,20 @@ namespace Ordering.Application.Features.Orders.Commands.CheckOutOrder
 
         public async Task<int> Handle(CheckOutOrderCommand request, CancellationToken cancellationToken)
         {
-            var orderEntity = _mapper.Map<Order>(request);
-            var newOrder = await _orderRepository.AddAsync(orderEntity);
+            try
+            {
+                var orderEntity = _mapper.Map<Order>(request);
+                var newOrder = await _orderRepository.AddAsync(orderEntity);
 
-            await SendMail(newOrder);
+                await SendMail(newOrder);
 
-            return newOrder.Id;
+                return newOrder.Id;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
 
         private async Task SendMail(Order order)
