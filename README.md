@@ -3,14 +3,10 @@
 
 ## Run The Project
 You will need the following tools:
-Markup : <details>
-* Bullet list
-* Bullet list
-* Bullet list
-           <summary>Visual Studio 2022</summary>
-           <summary>.Net Core 6 or later</summary>
-           <summary>Docker Desktop</summary>
-         </details>
+Markup : * Visual Studio 2022
+* .Net Core 6 or later
+* Docker Desktop
+          
          
 ## Installing
 
