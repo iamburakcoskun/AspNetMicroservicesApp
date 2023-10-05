@@ -5,8 +5,8 @@
 You will need the following tools:
 Markup : <details>
            <summary>Visual Studio 2022</summary>
-           <p>.Net Core 6 or later</p>
-           <p>Docker Desktop</p>
+           <summary>.Net Core 6 or later</summary>
+           <summary>Docker Desktop</summary>
          </details>
          
 ## Installing
