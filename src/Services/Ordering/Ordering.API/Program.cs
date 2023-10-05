@@ -25,6 +25,7 @@ builder.Services.AddMassTransit(config =>
         cfg.ReceiveEndpoint(EventBusConstants.BasketCheckoutQueue, c =>
         {
             c.ConfigureConsumer<BasketCheckoutConsumer>(ctx);
+            c.UseRetry(r => r.Immediate(5));
         });
     });
 });
