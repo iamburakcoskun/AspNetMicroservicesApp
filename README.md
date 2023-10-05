@@ -3,11 +3,12 @@
 
 ## Run The Project
 You will need the following tools:
-
-Visual Studio 2022
-.Net Core 6 or later
-Docker Desktop
-
+Markup : <details>
+           <summary>Visual Studio 2022</summary>
+           <p>.Net Core 6 or later</p>
+           <p>Docker Desktop</p>
+         </details>
+         
 ## Installing
 
 Follow these steps to get your development environment set up: (Before Run Start the Docker Desktop)
