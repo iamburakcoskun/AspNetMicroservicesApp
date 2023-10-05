@@ -2,8 +2,8 @@
 
 docker-compose -f docker-compose.yml -f docker-compose.override.yml up
 
-## A second-level heading
-Run The Project
+## Run The Project
+
 You will need the following tools:
 
 Visual Studio 2022
