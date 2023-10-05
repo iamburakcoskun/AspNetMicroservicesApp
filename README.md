@@ -3,7 +3,6 @@
 docker-compose -f docker-compose.yml -f docker-compose.override.yml up
 
 ## Run The Project
-
 You will need the following tools:
 
 Visual Studio 2022
