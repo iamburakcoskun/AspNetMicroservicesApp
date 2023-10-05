@@ -3,7 +3,7 @@
 
 ## Run The Project
 You will need the following tools:
-Markup : 
+
 * Visual Studio 2022
 * .Net Core 6 or later
 * Docker Desktop
