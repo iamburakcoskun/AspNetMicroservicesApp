@@ -1,6 +1,6 @@
 # AspNetMicroservices
 
-docker-compose -f docker-compose.yml -f docker-compose.override.yml up
+
 
 ## Run The Project
 You will need the following tools:
@@ -16,5 +16,7 @@ Follow these steps to get your development environment set up: (Before Run Start
 1. Clone the repository
 
 2. At the root directory which include docker-compose.yml files, run below command:
-3. 
+   
 docker-compose -f docker-compose.yml -f docker-compose.override.yml up -d
+
+3. Wait for docker compose all microservices. That’s it!
