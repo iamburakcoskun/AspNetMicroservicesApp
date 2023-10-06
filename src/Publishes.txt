@@ -3,3 +3,4 @@ Basket service: 5002
 Discount service: 5003
 Order service: 5004
 ApiGateway: 5005
+Aggregator: 5006
