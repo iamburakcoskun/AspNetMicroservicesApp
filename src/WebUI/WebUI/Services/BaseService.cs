@@ -24,7 +24,7 @@ namespace WebUI.Services
 
             //token
 
-            message.RequestUri = new Uri(requestDto.Url));
+            message.RequestUri = new Uri(requestDto.Url);
             if (requestDto.Data != null)
             {
                 message.Content = new StringContent(JsonConvert.SerializeObject(requestDto.Data), Encoding.UTF8, "application/json");
