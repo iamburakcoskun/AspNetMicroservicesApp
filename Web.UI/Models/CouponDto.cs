@@ -2,7 +2,7 @@
 {
     public class CouponDto
     {
-        public int CouponId { get; set; }
+        public int Id { get; set; }
 
         public string CouponCode { get; set; }
 

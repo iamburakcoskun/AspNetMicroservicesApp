@@ -76,7 +76,7 @@ namespace Web.UI.Controllers
         [HttpPost]
         public async Task<IActionResult> CouponDelete(CouponDto couponDto)
         {
-            ResponseDto? response = await _couponService.DeleteCouponsAsync(couponDto.CouponId);
+            ResponseDto? response = await _couponService.DeleteCouponsAsync(couponDto.Id);
 
             if (response != null && response.IsSuccess)
             {

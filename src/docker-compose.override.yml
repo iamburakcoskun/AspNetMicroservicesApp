@@ -45,7 +45,15 @@ services:
     ports:
         - "1434:1433"
 
- 
+  identitydb:
+    container_name: identitydb
+    environment:
+        SA_PASSWORD: "SwN12345678"
+        ACCEPT_EULA: "Y"
+    restart: always
+    ports:
+        - "1435:1433"
+
   rabbitmq:
     container_name: rabbitmq
     restart: always
@@ -129,3 +137,15 @@ services:
       - rabbitmq   
     ports:
       - "8005:80"
+  identity.api:
+    container_name: identity.api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - "ConnectionStrings:IdentityConnectionString=Server=identitydb,1433;Database=IdentityDb;User Id=sa;Password=SwN12345678" 
+      - "EventBusSettings:HostAddress=amqp://guest:guest@localhost:5672" 
+    depends_on:
+       - identitydb
+       - rabbitmq     
+    ports:
+      - "8006:80"
+
