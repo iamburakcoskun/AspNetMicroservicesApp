@@ -18,7 +18,7 @@ namespace Web.UI.Services
 
         public async Task<ResponseDto?> SendAsync(RequestDto requestDto)
         {
-            HttpClient client = _httpClientFactory.CreateClient("MangoAPI");
+            HttpClient client = _httpClientFactory.CreateClient("ETicaretAPI");
             HttpRequestMessage message = new();
 
             //token

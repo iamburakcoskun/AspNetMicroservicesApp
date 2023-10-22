@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Coupon.API.Controllers
 {
+    [Route("api/CouponAPI")]
+    [ApiController]
     public class CouponController : ControllerBase
     {
         private readonly AppDbContext _db;
