@@ -4,7 +4,7 @@ services:
 
   catalogdb:
     container_name: catalogdb
-    restart: always
+    restart: no
     ports:
       - "27017:27017"
     volumes:
@@ -12,7 +12,7 @@ services:
 
   basketdb:
     container_name: basketdb
-    restart: always
+    restart: no
     ports:
       - "6379:6379"
 
@@ -22,7 +22,7 @@ services:
       - POSTGRES_USER=admin
       - POSTGRES_PASSWORD=admin1234
       - POSTGRES_DB=Discountdb
-    restart: always
+    restart: no
     ports:
       - "5432:5432"
     volumes:
@@ -33,7 +33,7 @@ services:
     environment:
         SA_PASSWORD: "SwN12345678"
         ACCEPT_EULA: "Y"
-    restart: always
+    restart: no
     ports:
         - "1433:1433"
   coupondb:
@@ -41,7 +41,7 @@ services:
     environment:
         SA_PASSWORD: "SwN12345678"
         ACCEPT_EULA: "Y"
-    restart: always
+    restart: no
     ports:
         - "1434:1433"
 
@@ -50,13 +50,13 @@ services:
     environment:
         SA_PASSWORD: "SwN12345678"
         ACCEPT_EULA: "Y"
-    restart: always
+    restart: no
     ports:
         - "1435:1433"
 
   rabbitmq:
     container_name: rabbitmq
-    restart: always
+    restart: no
     ports:
         - "5672:5672"
         - "15672:15672"
@@ -66,7 +66,7 @@ services:
     environment:
       - PGADMIN_DEFAULT_EMAIL=admin@burakcoskun.net
       - PGADMIN_DEFAULT_PASSWORD=admin1234
-    restart: always
+    restart: no
     ports:
       - "5050:80"
     volumes:
@@ -74,78 +74,11 @@ services:
 
   portainer:
     container_name: portainer
-    restart: always
+    restart: no
     ports:
       - "8080:8000"
       - "9000:9000"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - portainer_data:/data
-
-  catalog.api:
-    container_name: catalog.api
-    environment:
-      - ASPNETCORE_ENVIRONMENT=Development
-      - "DatabaseSettings:ConnectionString=mongodb://catalogdb:27017"
-    depends_on:
-      - catalogdb
-    ports:
-      - "8000:80"
-
-  basket.api:
-    container_name: basket.api
-    environment:
-      - ASPNETCORE_ENVIRONMENT=Development
-      - "CacheSettings:ConnectionString=basketdb:6379"
-      - "EventBusSettings:HostAddress=amqp://guest:guest@localhost:5672"
-    depends_on:
-      - basketdb
-      - rabbitmq
-    ports:
-      - "8001:80"
-
-  discount.api:
-    container_name: discount.api
-    environment:
-      - ASPNETCORE_ENVIRONMENT=Development
-      - "DatabaseSettings:ConnectionString=Server=discountdb;Port=5432;Database=Discountdb;User Id=admin;Password=admin1234;"
-    depends_on:
-      - discountdb
-    ports:
-      - "8002:80"
-
-  ordering.api:
-    container_name: ordering.api
-    environment:
-      - ASPNETCORE_ENVIRONMENT=Development
-      - "ConnectionStrings:OrderingConnectionString=Server=orderdb,1433;Database=OrderDb;User Id=sa;Password=SwN12345678" 
-      - "EventBusSettings:HostAddress=amqp://guest:guest@localhost:5672" 
-    depends_on:
-      - orderdb
-      - rabbitmq   
-    ports:
-      - "8004:80"
-
-  coupon.api:
-    container_name: coupon.api
-    environment:
-      - ASPNETCORE_ENVIRONMENT=Development
-      - "ConnectionStrings:OrderingConnectionString=Server=coupondb,1433;Database=OrderDb;User Id=sa;Password=SwN12345678" 
-      - "EventBusSettings:HostAddress=amqp://guest:guest@localhost:5672" 
-    depends_on:
-      - coupondb
-      - rabbitmq   
-    ports:
-      - "8005:80"
-  identity.api:
-    container_name: identity.api
-    environment:
-      - ASPNETCORE_ENVIRONMENT=Development
-      - "ConnectionStrings:IdentityConnectionString=Server=identitydb,1433;Database=IdentityDb;User Id=sa;Password=SwN12345678" 
-      - "EventBusSettings:HostAddress=amqp://guest:guest@localhost:5672" 
-    depends_on:
-       - identitydb
-       - rabbitmq     
-    ports:
-      - "8006:80"
 

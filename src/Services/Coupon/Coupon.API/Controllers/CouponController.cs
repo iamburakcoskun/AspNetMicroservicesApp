@@ -23,6 +23,7 @@ namespace Coupon.API.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public ResponseDto Get()
         {
             try
